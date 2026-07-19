@@ -59,7 +59,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/capstone-frontend:latest
           build-args: |
-            VITE_API_URL=${{ secrets.BACKEND_IP }}
+            VITE_API_URL=http://${{ secrets.BACKEND_IP }}:5000
 
       # FOR BACKEND REPOSITORY BUILD:
       - name: Build and Push Backend Container

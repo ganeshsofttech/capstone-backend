@@ -8,6 +8,7 @@ const {
   createReservation,
   myReservations,
   allReservations,
+  cancelReservation
 } = require("../controllers/reservationController");
 
 router.post("/", auth, createReservation);
@@ -15,5 +16,6 @@ router.post("/", auth, createReservation);
 router.get("/my", auth, myReservations);
 
 router.get("/", auth, admin, allReservations);
+router.put("/:id/cancel", auth, cancelReservation);
 
 module.exports = router;

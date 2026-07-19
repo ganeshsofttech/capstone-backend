@@ -52,20 +52,20 @@ jobs:
 
       # FOR FRONTEND REPOSITORY BUILD:
       - name: Build and Push Frontend Container (With Secrets Injection)
-        if: github.event.repository.name == 'smart-task-manager-frontend'
+        if: github.event.repository.name == 'capstone-frontend'
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/smart-task-manager-frontend:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/capstone-frontend:latest
           build-args: |
             VITE_API_URL=${{ secrets.BACKEND_IP }}
 
       # FOR BACKEND REPOSITORY BUILD:
       - name: Build and Push Backend Container
-        if: github.event.repository.name == 'smart-task-manager-backend'
+        if: github.event.repository.name == 'capstone-backend'
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/smart-task-manager-backend:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/capstone-backend:latest

@@ -1,14 +1,45 @@
 const Order = require("../models/Order");
+const Menu = require("../models/Menu");
+// exports.createOrder = async (req, res) => {
+//   const order = await Order.create({
+//     ...req.body,
+//     userId: req.user.id,
+//   });
+
+//   res.status(201).json(order);
+// };
 
 exports.createOrder = async (req, res) => {
-  const order = await Order.create({
-    ...req.body,
-    userId: req.user.id,
-  });
+  try {
+    const { items } = req.body;
 
-  res.status(201).json(order);
+    let totalAmount = 0;
+
+    for (const item of items) {
+      const menuItem = await Menu.findById(item.menuId);
+
+      if (!menuItem) {
+        return res.status(404).json({
+          message: "Menu item not found",
+        });
+      }
+
+      totalAmount += menuItem.price * item.quantity;
+    }
+
+    const order = await Order.create({
+      userId: req.user.id,
+      items,
+      totalAmount,
+    });
+
+    res.status(201).json(order);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
 };
-
 exports.getMyOrders = async (req, res) => {
   const orders = await Order.find({
     userId: req.user.id,

@@ -8,6 +8,7 @@ exports.createReservation = async (req, res) => {
   // }
   const reservations = await Reservation.find({
     userId: req.user.id,
+    status: "Active",
   });
   if (reservations.length > 0) {
     return res
@@ -39,4 +40,30 @@ exports.allReservations = async (req, res) => {
   const reservations = await Reservation.find();
 
   res.json(reservations);
+};
+exports.cancelReservation = async (req, res) => {
+  try {
+    const reservation = await Reservation.findOne({
+      _id: req.params.id,
+      userId: req.user.id,
+    });
+
+    if (!reservation) {
+      return res.status(404).json({
+        message: "Reservation not found",
+      });
+    }
+
+    reservation.status = "Cancelled";
+    await reservation.save();
+
+    res.json({
+      success: true,
+      reservation,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
 };

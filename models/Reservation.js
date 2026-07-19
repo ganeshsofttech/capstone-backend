@@ -14,6 +14,11 @@ const reservationSchema = new mongoose.Schema(
     tableNumber: Number,
 
     guests: Number,
+    status: {
+      type: String,
+      enum: ["Active", "Cancelled"],
+      default: "Active",
+    },
   },
   {
     timestamps: true,

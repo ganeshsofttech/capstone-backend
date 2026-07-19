@@ -15,6 +15,8 @@ const reservationRoutes = require("./routes/reservationRoutes");
 
 const feedbackRoutes = require("./routes/feedbackRoutes");
 
+const userRoutes = require("./routes/userRoutes");
+
 const app = express();
 
 connectDB();
@@ -32,7 +34,7 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/reservations", reservationRoutes);
 
 app.use("/api/feedback", feedbackRoutes);
-
+app.use("/api/users", userRoutes);
 app.get("/", (req, res) => {
   res.send("Restaurant API Running");
 });

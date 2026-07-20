@@ -1,0 +1,877 @@
+{
+  "info": {
+    "_postman_id": "36c9c174-a54d-436f-ac52-ecce2e0e5e4e",
+    "name": "Capstone-API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51936074",
+    "_collection_link": "https://go.postman.co/collection/51936074-36c9c174-a54d-436f-ac52-ecce2e0e5e4e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Admin API",
+      "item": [
+        {
+          "name": "Get All Menu",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_0sd4}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\": 5,\r\n    \"review\": \"ok\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{vault:BackenIP}}/api/menu",
+              "protocol": "http",
+              "host": [
+                "{{vault:BackenIP}}"
+              ],
+              "path": [
+                "api",
+                "menu"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Menu",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_0sd4}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Veg Burger\",\r\n    \"description\": \"Fresh burger\",\r\n    \"price\": 50,\r\n    \"category\": \"Fast Food\",\r\n    \"image\": \"image-url\",\r\n    \"availability\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{vault:BackenIP}}/api/menu/6a5b133d7feb1aa6f664c3f7",
+              "protocol": "http",
+              "host": [
+                "{{vault:BackenIP}}"
+              ],
+              "path": [
+                "api",
+                "menu",
+                "6a5b133d7feb1aa6f664c3f7"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Menu",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_0sd4}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{vault:BackenIP}}/api/menu/6a5dae7b14139bb7feb8edfd",
+              "protocol": "http",
+              "host": [
+                "{{vault:BackenIP}}"
+              ],
+              "path": [
+                "api",
+                "menu",
+                "6a5dae7b14139bb7feb8edfd"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Menu",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_0sd4}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"SA\",\r\n    \"description\": \"SA\",\r\n    \"price\": \"5\",\r\n    \"category\": \"Fast Food\",\r\n    \"image\": \"image-url\",\r\n    \"availability\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{vault:BackenIP}}/api/menu",
+              "protocol": "http",
+              "host": [
+                "{{vault:BackenIP}}"
+              ],
+              "path": [
+                "api",
+                "menu"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Orders",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_0sd4}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\": 5,\r\n    \"review\": \"ok\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{vault:BackenIP}}/api/orders",
+              "protocol": "http",
+              "host": [
+                "{{vault:BackenIP}}"
+              ],
+              "path": [
+                "api",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Order Status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_0sd4}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": \"Ready\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{vault:BackenIP}}/api/orders/6a5c97ffe186b6ea7542b8ef/status",
+              "protocol": "http",
+              "host": [
+                "{{vault:BackenIP}}"
+              ],
+              "path": [
+                "api",
+                "orders",
+                "6a5c97ffe186b6ea7542b8ef",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Reservation",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_0sd4}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\": 5,\r\n    \"review\": \"ok\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{vault:BackenIP}}/api/reservations",
+              "protocol": "http",
+              "host": [
+                "{{vault:BackenIP}}"
+              ],
+              "path": [
+                "api",
+                "reservations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Feedback",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_0sd4}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\": 5,\r\n    \"review\": \"ok\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{vault:BackenIP}}/api/feedback",
+              "protocol": "http",
+              "host": [
+                "{{vault:BackenIP}}"
+              ],
+              "path": [
+                "api",
+                "feedback"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Feedback",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_0sd4}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\": 5,\r\n    \"review\": \"ok\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{vault:BackenIP}}/api/feedback/6a5c99f3e186b6ea7542b900",
+              "protocol": "http",
+              "host": [
+                "{{vault:BackenIP}}"
+              ],
+              "path": [
+                "api",
+                "feedback",
+                "6a5c99f3e186b6ea7542b900"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_0sd4}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{vault:BackenIP}}/api/users/getUser",
+              "protocol": "http",
+              "host": [
+                "{{vault:BackenIP}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "getUser"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_0sd4}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Ganesh\",\r\n    \"email\": \"ganesh@gmail.com\",\r\n    \"password\": \"ganesh\",\r\n    \"role\": \"Customer\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{vault:BackenIP}}/api/auth/register",
+              "protocol": "http",
+              "host": [
+                "{{vault:BackenIP}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_0sd4}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{vault:BackenIP}}/api/auth/6a5c962ae186b6ea7542b8ec",
+              "protocol": "http",
+              "host": [
+                "{{vault:BackenIP}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "6a5c962ae186b6ea7542b8ec"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_0sd4}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Ganesh\",\r\n    \"email\": \"ganesh@gmail.com\",\r\n    \"password\": \"ganesh\",\r\n    \"role\": \"Customer\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{vault:BackenIP}}/api/auth/6a5db1e914139bb7feb8ee21",
+              "protocol": "http",
+              "host": [
+                "{{vault:BackenIP}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "6a5db1e914139bb7feb8ee21"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://43.205.210.130:5000/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "43",
+            "205",
+            "210",
+            "130"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer ",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Ganesh\",\r\n    \"email\": \"sdf@gmail.com\",\r\n    \"password\": \"sdf\",\r\n    \"role\": \"Customer\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://13.233.138.82:5000/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "13",
+            "233",
+            "138",
+            "82"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetMenu",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{json_web_token_0sd4}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://13.233.138.82:5000/api/menu",
+          "protocol": "http",
+          "host": [
+            "13",
+            "233",
+            "138",
+            "82"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "menu"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Place Order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{json_web_token_0sd4}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"items\": [\r\n        {\r\n            \"menuId\": \"6a5b133d7feb1aa6f664c3f7\",\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://13.233.138.82:5000/api/orders",
+          "protocol": "http",
+          "host": [
+            "13",
+            "233",
+            "138",
+            "82"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cancel Order",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{json_web_token_0sd4}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://13.233.138.82:5000/api/orders/6a5c92c7e186b6ea7542b8d3/cancel",
+          "protocol": "http",
+          "host": [
+            "13",
+            "233",
+            "138",
+            "82"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "orders",
+            "6a5c92c7e186b6ea7542b8d3",
+            "cancel"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "My Orders",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{json_web_token_0sd4}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://13.233.138.82:5000/api/orders/my-orders",
+          "protocol": "http",
+          "host": [
+            "13",
+            "233",
+            "138",
+            "82"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "orders",
+            "my-orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "My Reservation",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{json_web_token_0sd4}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://13.233.138.82:5000/api/reservations/my",
+          "protocol": "http",
+          "host": [
+            "13",
+            "233",
+            "138",
+            "82"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "reservations",
+            "my"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Book Reservation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{json_web_token_0sd4}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"date\": \"2026-07-19\",\r\n    \"time\": \"14:58\",\r\n    \"tableNumber\": 1,\r\n    \"guests\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://13.233.138.82:5000/api/reservations",
+          "protocol": "http",
+          "host": [
+            "13",
+            "233",
+            "138",
+            "82"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "reservations"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cancel Reservation",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{json_web_token_0sd4}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://13.233.138.82:5000/api/reservations/6a5c98d8e186b6ea7542b8fe/cancel",
+          "protocol": "http",
+          "host": [
+            "13",
+            "233",
+            "138",
+            "82"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "reservations",
+            "6a5c98d8e186b6ea7542b8fe",
+            "cancel"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get feedBack",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{json_web_token_0sd4}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://13.233.138.82:5000/api/feedback/my-feedback",
+          "protocol": "http",
+          "host": [
+            "13",
+            "233",
+            "138",
+            "82"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "feedback",
+            "my-feedback"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Give feedBack",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{json_web_token_0sd4}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"rating\": 5,\r\n    \"review\": \"ok\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://13.233.138.82:5000/api/feedback",
+          "protocol": "http",
+          "host": [
+            "13",
+            "233",
+            "138",
+            "82"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "feedback"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete FeedBack",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{json_web_token_0sd4}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"rating\": 5,\r\n    \"review\": \"ok\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://13.233.138.82:5000/api/feedback/6a5c99f3e186b6ea7542b900",
+          "protocol": "http",
+          "host": [
+            "13",
+            "233",
+            "138",
+            "82"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "feedback",
+            "6a5c99f3e186b6ea7542b900"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "json_web_token_0sd4",
+      "secret": true
+    },
+    {
+      "key": "bearer_token_0ud2",
+      "secret": true
+    }
+  ]
+}

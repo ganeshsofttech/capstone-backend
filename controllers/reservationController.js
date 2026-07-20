@@ -19,13 +19,22 @@ exports.createReservation = async (req, res) => {
     return res.status(400).json({
       message: "Guests must be at least 1",
     });
+  }else if(req.body.guests > 20){
+    return res.status(400).json({
+      message: "Maximum no. of Guests must be 20",
+    });
+  }
+  if (req.body.tableNumber > 50) {
+    return res.status(400).json({
+      message: "Select table number between 1 to 50",
+    });
   }
   const reservation = await Reservation.create({
     ...req.body,
     userId: req.user.id,
   });
 
-  res.status(201).json(reservation);
+  res.status(201).json({message: "Reservation created successfully", reservation});
 };
 
 exports.myReservations = async (req, res) => {

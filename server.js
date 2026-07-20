@@ -18,7 +18,7 @@ const feedbackRoutes = require("./routes/feedbackRoutes");
 const userRoutes = require("./routes/userRoutes");
 
 const app = express();
-
+const path = require("path");
 connectDB();
 
 app.use(cors());
@@ -39,6 +39,7 @@ app.get("/", (req, res) => {
   res.send("Restaurant API Running");
 });
 
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

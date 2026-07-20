@@ -41,3 +41,30 @@ exports.deleteFeedback = async (req, res) => {
     message: "Deleted",
   });
 };
+
+exports.addAdminComment = async (req, res) => {
+  try {
+    const { adminComment } = req.body;
+
+    const feedback = await Feedback.findById(req.params.id);
+
+    if (!feedback) {
+      return res.status(404).json({
+        message: "Feedback not found",
+      });
+    }
+
+    feedback.adminComment = adminComment;
+
+    await feedback.save();
+
+    res.json({
+      message: "Comment added successfully",
+      feedback,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};

@@ -80,24 +80,27 @@ exports.searchMenu = async (req, res) => {
  */
 exports.createMenu = async (req, res) => {
   try {
-    const {
-      name,
-      description,
-      price,
-      category,
-      image,
-      availability,
-    } = req.body;
+    // const { name, description, price, category, image, availability } =
+    //   req.body;
+
+    // const menu = await Menu.create({
+    //   name,
+    //   description,
+    //   price,
+    //   category,
+    //   image,
+    //   availability,
+    // });
+    const { name, description, price, category, availability } = req.body;
 
     const menu = await Menu.create({
       name,
       description,
       price,
       category,
-      image,
       availability,
+      image: req.file ? `/uploads/${req.file.filename}` : "",
     });
-
     res.status(201).json({
       success: true,
       data: menu,
@@ -125,15 +128,30 @@ exports.updateMenu = async (req, res) => {
       });
     }
 
+    // const updatedMenu = await Menu.findByIdAndUpdate(req.params.id, req.body, {
+    //   new: true,
+    //   runValidators: true,
+    // });
+    const updateData = {
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      category: req.body.category,
+      availability: req.body.availability,
+    };
+
+    if (req.file) {
+      updateData.image = `/uploads/${req.file.filename}`;
+    }
+
     const updatedMenu = await Menu.findByIdAndUpdate(
       req.params.id,
-      req.body,
+      updateData,
       {
         new: true,
         runValidators: true,
-      }
+      },
     );
-
     res.status(200).json({
       success: true,
       data: updatedMenu,

@@ -19,7 +19,7 @@ exports.createReservation = async (req, res) => {
     return res.status(400).json({
       message: "Guests must be at least 1",
     });
-  }else if(req.body.guests > 20){
+  } else if (req.body.guests > 20) {
     return res.status(400).json({
       message: "Maximum no. of Guests must be 20",
     });
@@ -34,7 +34,9 @@ exports.createReservation = async (req, res) => {
     userId: req.user.id,
   });
 
-  res.status(201).json({message: "Reservation created successfully", reservation});
+  res
+    .status(201)
+    .json({ message: "Reservation created successfully", reservation });
 };
 
 exports.myReservations = async (req, res) => {
@@ -72,6 +74,36 @@ exports.cancelReservation = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+exports.updateReservationStatus = async (req, res) => {
+  try {
+    const { status } = req.body;
+
+    const reservation = await Reservation.findById(req.params.id);
+
+    if (!reservation) {
+      return res.status(404).json({
+        success: false,
+        message: "Reservation not found",
+      });
+    }
+
+    reservation.reservationStatus = status;
+
+    await reservation.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Reservation status updated successfully",
+      reservation,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
       message: error.message,
     });
   }

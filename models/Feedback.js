@@ -14,6 +14,10 @@ const feedbackSchema = new mongoose.Schema(
     },
 
     review: String,
+    adminComment: {
+      type: String,
+      default: "",
+    },
   },
   {
     timestamps: true,

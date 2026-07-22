@@ -16,7 +16,7 @@ const {
 router.post("/", auth, createFeedback);
 router.get("/my-feedback", auth, getMyFeedback);
 router.get("/", auth, getAllFeedback);
-router.delete("/:id", auth, admin, deleteFeedback);
+router.delete("/:id", auth, deleteFeedback);
 router.put("/:id", auth, updateFeedback);
 router.put("/:id/comment", auth, addAdminComment);
 module.exports = router;
